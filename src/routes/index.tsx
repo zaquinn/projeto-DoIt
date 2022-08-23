@@ -8,6 +8,6 @@ export const Routes = () => (
   <Switch>
     <Route exact path="/" component={Login} />
     <Route path="/dashboard" component={Dashboard} isPrivate />
-    <Route path="signup" component={Signup} />
+    <Route path="/signup" component={Signup} />
   </Switch>
 );

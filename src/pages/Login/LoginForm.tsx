@@ -7,6 +7,7 @@ import {
   FieldValues,
   UseFormRegister,
 } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 
 interface SignInData {
   email: string;
@@ -26,6 +27,8 @@ export const LoginForm = ({
   register,
   loading,
 }: LoginFormProps) => {
+  const history = useHistory();
+
   return (
     <Grid
       as="form"
@@ -85,6 +88,7 @@ export const LoginForm = ({
           h="60px"
           borderRadius="8px"
           _hover={{ bg: "gray.200" }}
+          onClick={() => history.push("/signup")}
         >
           Cadastrar
         </Button>

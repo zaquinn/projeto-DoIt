@@ -33,14 +33,14 @@ export const SignupForm = ({
       as="form"
       mt={["4", "4", "0"]}
       w={["100%", "80%", "60%", "60%", "40%"]}
-      padding="30px 15px"
+      padding="40px 25px"
       border="3px solid"
       borderColor="gray.100"
       bg="white"
       color="gray.900"
       onSubmit={handleSignUp}
     >
-      <Heading size="lg">Bem vindo de volta!</Heading>
+      <Heading size="lg">Crie sua conta</Heading>
       <VStack spacing="5" mt="5">
         <Box w="100%">
           <Input
@@ -81,31 +81,19 @@ export const SignupForm = ({
           {...register("confirm_password")}
         />
       </VStack>
-      <VStack mt="4" spacing="5">
-        <Button
-          isLoading={loading}
-          bg="purple.800"
-          w="100%"
-          color="white"
-          h="60px"
-          borderRadius="8px"
-          _hover={{ bg: "purple.900" }}
-          type="submit"
-        >
-          Entrar
-        </Button>
-        <Text color="gray.400">Ainda não possui uma conta?</Text>
-        <Button
-          bg="gray.100"
-          w="100%"
-          color="gray.300"
-          h="60px"
-          borderRadius="8px"
-          _hover={{ bg: "gray.200" }}
-        >
-          Cadastrar
-        </Button>
-      </VStack>
+      <Button
+        mt="8"
+        isLoading={loading}
+        bg="purple.800"
+        w="100%"
+        color="white"
+        h="60px"
+        borderRadius="8px"
+        _hover={{ bg: "purple.900" }}
+        type="submit"
+      >
+        Finalizar cadastro
+      </Button>
     </Grid>
   );
 };
