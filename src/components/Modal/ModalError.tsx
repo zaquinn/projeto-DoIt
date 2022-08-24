@@ -1,47 +1,81 @@
 import {
+  Box,
   Button,
+  Center,
   Modal,
   ModalBody,
-  ModalCloseButton,
   ModalContent,
   ModalFooter,
   ModalHeader,
   ModalOverlay,
   Text,
 } from "@chakra-ui/react";
-import { FaExclamation } from "react-icons/fa";
+import { FaExclamation, FaTimes } from "react-icons/fa";
 import { theme } from "../../styles/theme";
 
 interface IModalErrorProps {
   isOpen: boolean;
   onClose: () => void;
   error: string;
+  secondaryText: string;
 }
 
-export const ModalError = ({ isOpen, onClose, error }: IModalErrorProps) => {
+export const ModalError = ({
+  isOpen,
+  onClose,
+  error,
+  secondaryText,
+}: IModalErrorProps) => {
   return (
     <>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>
-            <FaExclamation color={theme.colors.red["500"]} /> Oops!
+        <ModalContent color="gray.800">
+          <ModalHeader display="flex">
+            <Center bg="red.500" w="30px" h="30px" borderRadius="5px">
+              <FaExclamation color={theme.colors.white} />
+            </Center>
+            <Text fontWeight="bold" ml="2">
+              Oops!
+            </Text>
+            <Center
+              onClick={onClose}
+              as="button"
+              ml="auto"
+              w="32px"
+              h="32px"
+              bg="red.600"
+              fontSize="lg"
+              borderRadius="md"
+              _hover={{ bg: "red.700" }}
+            >
+              <FaTimes color={theme.colors.white} />
+            </Center>
           </ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <Text>Ocorreu algum erro! {error} </Text>
+          <ModalBody color="gray.400" textAlign="center">
+            <Text>
+              Ocorreu algum erro! <strong>{error}</strong>{" "}
+            </Text>
           </ModalBody>
 
-          <ModalFooter>
+          <ModalFooter display="column">
             <Button
-              bg="red.500"
+              bg="red.600"
               color="white"
               w="100%"
-              _hover={{ bg: "red.600" }}
+              h="60px"
+              _hover={{ bg: "red.700" }}
               onClick={onClose}
             >
               Tentar novamente
             </Button>
+            <Text mt="4" textAlign="center">
+              <Box
+                dangerouslySetInnerHTML={{
+                  __html: secondaryText,
+                }}
+              />
+            </Text>
           </ModalFooter>
         </ModalContent>
       </Modal>
