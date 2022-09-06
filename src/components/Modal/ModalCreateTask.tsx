@@ -49,9 +49,7 @@ export const ModalCreateTask = ({ isOpen, onClose }: IModalCreateTaskProps) => {
   const handleCreateTask = (data: any) => {
     const newData = { ...data, userId: user.id, completed: false };
 
-    console.log(newData);
-
-    createTask(newData, accessToken);
+    createTask(newData, accessToken).then((_) => onClose());
   };
 
   return (
@@ -105,12 +103,12 @@ export const ModalCreateTask = ({ isOpen, onClose }: IModalCreateTaskProps) => {
 
           <ModalFooter flexDirection="column">
             <Button
-              type="submit"
               bg="purple.500"
               color="white"
               w="100%"
               _hover={{ bg: "purple.600" }}
               h="60px"
+              type="submit"
             >
               Adicionar tarefa
             </Button>
