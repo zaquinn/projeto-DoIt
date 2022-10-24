@@ -36,7 +36,7 @@ export const Card = ({ task, onClick }: ICardTaskProps) => {
       borderColor="gray.50"
       boxShadow="base"
       padding="7"
-      w={["80vw", "auto"]}
+      w={["100%", "auto"]}
     >
       <Flex justify="space-between">
         <Heading as="h1" size="md">
