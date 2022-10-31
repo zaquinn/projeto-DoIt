@@ -8,7 +8,13 @@ export const Header = () => {
   const { isOpen, onClose, onToggle } = useDisclosure();
 
   return (
-    <Flex borderBottom="1px" borderBottomColor="#f5f5f5" px="8" py="2">
+    <Flex
+      borderBottom="1px"
+      borderBottomColor="#f5f5f5"
+      px="8"
+      height="80px"
+      py="2"
+    >
       <Flex align="center">
         <Image src={Logo} />
         <Heading ml="4" size="lg">

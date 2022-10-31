@@ -23,7 +23,7 @@ export const Menu = ({ isOpen, onClose }: IMenuProps) => {
   const { user, signOut } = useAuth();
   return (
     <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
-      <DrawerOverlay mt="8vh" />
+      <DrawerOverlay mt="80px" />
       <DrawerContent ml="auto" mt="80px" w={["450px", "350px"]}>
         <DrawerHeader
           borderBottomWidth="1px"
